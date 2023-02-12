@@ -1,5 +1,4 @@
 prediction1 = "";
-prediction2 = "";
 
 Webcam.set
 ({
@@ -23,7 +22,7 @@ function take_snapshot()
 
 console.log('ml5 version:', ml5.version);
 
-classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/sjGa2MnZi/model.json', modelLoaded);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/Hys9n7Gxg/model.json', modelLoaded);
 
 function modelLoaded()
 {
@@ -34,13 +33,11 @@ function speak()
 {
     var synth = window.speechSynthesis;
     speak_data_1 = "The first prediction is " + prediction1;
-    speak_data_2 = "The second prediction is " + prediction2;
-    var utterThis = new SpeechSynthesisUtterance(speak_data_1 + speak_data_2);
+    var utterThis = new SpeechSynthesisUtterance(speak_data_1);
     synth.speak(utterThis);
 }
 
 function check()
 {
-    console.log("1");
     alert("You have clicked this button");
 }
