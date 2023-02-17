@@ -39,5 +39,34 @@ function speak()
 
 function check()
 {
-    alert("You have clicked this button");
+    img = document.getElementById('captured_image');
+    classifier.classify(img, gotResult);
+}
+
+function gotResult(error, result)
+{
+    if(error)
+    {
+        console.log(error);
+        document.getElementById("result_gesture_name").innerHTML = result[0].label;
+        prediction1 = result[0].label;
+    }
+    else
+    {
+        console.log(result);
+
+        if (result[0].label == "victory")
+        {
+            document.getElementById("result_gesture").innerHTML = "&#9996;";
+        }
+        if (result[0].label == "amazing")
+        {
+            document.getElementById("result_gesture").innerHTML = "&#128076;";
+        }
+        if (result[0].label == "best")
+        {
+            document.getElementById("result_gesture").innerHTML = "&#128077;";
+        }
+    }
+
 }
